@@ -1,0 +1,80 @@
+{
+    "name": "CopyPipeline-MS",
+    "id": "/subscriptions/[SUBSCRIPTION_ID]/resourcegroups/MSDatabaseTest/providers/Microsoft.DataFactory/datafactories/MSDataFactory/datapipelines/CopyPipeline-MS",
+    "properties": {
+        "description": "hogehoge",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "SqlSource",
+                        "sqlReaderQuery": "$$Text.Format('select * from [dbo].[testms] where d >= \\'{0:yyyy-MM-dd HH:mm}\\' AND d < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+                    },
+                    "sink": {
+                        "type": "SqlDWSink",
+                        "allowPolyBase": true,
+                        "polyBaseSettings": {
+                            "rejectType": "Value",
+                            "rejectValue": 0,
+                            "useTypeDefault": true
+                        },
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    },
+                    "translator": {
+                        "type": "TabularTranslator",
+                        "columnMappings": "d:d,id:id,name:name"
+                    },
+                    "enableStaging": true,
+                    "stagingSettings": {
+                        "linkedServiceName": "StagingStorage-MS",
+                        "path": "adfstagingcopydata"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "InputDataset-0xg"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "OutputDataset-0xg"
+                    }
+                ],
+                "policy": {
+                    "timeout": "1.00:00:00",
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "style": "StartOfInterval",
+                    "retry": 3,
+                    "longRetry": 0,
+                    "longRetryInterval": "00:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Minute",
+                    "interval": 15
+                },
+                "name": "Activity-0-[dbo]_[testms]->[dbo]_[testms]"
+            }
+        ],
+        "start": "2016-12-22T03:40:00Z",
+        "end": "2016-12-23T15:00:00Z",
+        "isPaused": false,
+        "runtimeInfo": {
+            "deploymentTime": "2016-12-22T04:11:06.2666048Z",
+            "activePeriodSetTime": "2016-12-22T04:11:04.8887887Z",
+            "pipelineState": "Completed",
+            "activityPeriods": {
+                "activity-0-[dbo]_[testms]->[dbo]_[testms]": {
+                    "start": "2016-12-22T03:30:00Z",
+                    "end": "2016-12-23T15:00:00Z"
+                }
+            }
+        },
+        "id": "14813de5-ff6e-4ba2-b524-12c9978979d9",
+        "provisioningState": "Succeeded",
+        "hubName": "MSdatafactory_hub",
+        "pipelineMode": "Scheduled"
+    }
+}

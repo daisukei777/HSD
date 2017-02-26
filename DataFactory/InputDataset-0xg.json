@@ -1,0 +1,35 @@
+{
+    "name": "InputDataset-0xg",
+    "id": "/subscriptions/[SUBSCRIPTION_ID]/resourcegroups/MSDatabaseTest/providers/Microsoft.DataFactory/datafactories/MSDataFactory/datasets/InputDataset-0xg",
+    "properties": {
+        "structure": [
+            {
+                "name": "d",
+                "type": "Datetime"
+            },
+            {
+                "name": "id",
+                "type": "Int32"
+            },
+            {
+                "name": "name",
+                "type": "String"
+            }
+        ],
+        "published": false,
+        "type": "AzureSqlTable",
+        "linkedServiceName": "Source-SQLAzure-0xg",
+        "typeProperties": {
+            "tableName": "[dbo].[testms]"
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        },
+        "external": true,
+        "policy": {},
+        "id": "a44fe9d7-b15b-4166-9ad6-a0d82416b373",
+        "createTime": "2016-12-22T04:10:59.0072114Z",
+        "provisioningState": "Succeeded"
+    }
+}

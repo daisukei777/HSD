@@ -1,0 +1,69 @@
+{
+    "name": "CopyPipeline-Test",
+    "id": "/subscriptions/[SUBSCRIPTION_ID]/resourcegroups/MSDatabaseTest/providers/Microsoft.DataFactory/datafactories/MSDataFactory/datapipelines/CopyPipeline-Test",
+    "properties": {
+        "description": "SQL Database 2 Data Warehouse",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "SqlSource",
+                        "sqlReaderQuery": "select * from [dbo].[test]"
+                    },
+                    "sink": {
+                        "type": "SqlDWSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    },
+                    "translator": {
+                        "type": "TabularTranslator",
+                        "columnMappings": "id:id,name:name"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "InputDataset-nqq"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "OutputDataset-nqq"
+                    }
+                ],
+                "policy": {
+                    "timeout": "1.00:00:00",
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "style": "StartOfInterval",
+                    "retry": 3,
+                    "longRetry": 0,
+                    "longRetryInterval": "00:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Minute",
+                    "interval": 15
+                },
+                "name": "dbo_test->dbo_test"
+            }
+        ],
+        "start": "2016-12-10T04:17:00Z",
+        "end": "2016-12-10T20:00:00Z",
+        "isPaused": true,
+        "runtimeInfo": {
+            "deploymentTime": "2016-12-10T04:42:51.9693171Z",
+            "activePeriodSetTime": "2016-12-10T04:42:52.3848048Z",
+            "pipelineState": "Paused",
+            "activityPeriods": {
+                "dbo_test->dbo_test": {
+                    "start": "2016-12-10T04:15:00Z",
+                    "end": "2016-12-10T20:00:00Z"
+                }
+            }
+        },
+        "id": "481fa593-9683-4fc3-8dba-c09fa81d8018",
+        "provisioningState": "Succeeded",
+        "hubName": "MSdatafactory_hub",
+        "pipelineMode": "Scheduled"
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "name": "OutputDataset-4fz",
+    "id": "/subscriptions/[SUBSCRIPTION_ID]/resourcegroups/MSDatabaseTest/providers/Microsoft.DataFactory/datafactories/MSDataFactory/datasets/OutputDataset-4fz",
+    "properties": {
+        "structure": [
+            {
+                "name": "d",
+                "type": "Datetime"
+            },
+            {
+                "name": "id",
+                "type": "Int32"
+            },
+            {
+                "name": "name",
+                "type": "String"
+            }
+        ],
+        "published": false,
+        "type": "AzureSqlDWTable",
+        "linkedServiceName": "Destination-SQLDW-Gate",
+        "typeProperties": {
+            "tableName": "[dbo].[testms]"
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        },
+        "external": false,
+        "policy": {},
+        "id": "15ecd999-b3bc-44f4-a24d-2b76f19dfd09",
+        "createTime": "2016-12-22T05:23:00.6906023Z",
+        "provisioningState": "Succeeded"
+    }
+}

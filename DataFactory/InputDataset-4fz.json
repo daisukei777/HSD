@@ -1,0 +1,35 @@
+{
+    "name": "InputDataset-4fz",
+    "id": "/subscriptions/[SUBSCRIPTION_ID]/resourcegroups/MSDatabaseTest/providers/Microsoft.DataFactory/datafactories/MSDataFactory/datasets/InputDataset-4fz",
+    "properties": {
+        "structure": [
+            {
+                "name": "d",
+                "type": "Datetime"
+            },
+            {
+                "name": "id",
+                "type": "Int32"
+            },
+            {
+                "name": "name",
+                "type": "String"
+            }
+        ],
+        "published": false,
+        "type": "SqlServerTable",
+        "linkedServiceName": "Source-OnPremSQL-Gate",
+        "typeProperties": {
+            "tableName": "[dbo].[testms]"
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        },
+        "external": true,
+        "policy": {},
+        "id": "3832ef95-b32e-4009-b3b6-958db661dee7",
+        "createTime": "2016-12-22T05:22:55.4808509Z",
+        "provisioningState": "Succeeded"
+    }
+}

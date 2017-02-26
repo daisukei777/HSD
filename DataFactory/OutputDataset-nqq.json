@@ -1,0 +1,31 @@
+{
+    "name": "OutputDataset-nqq",
+    "id": "/subscriptions/[SUBSCRIPTION_ID]/resourcegroups/MSDatabaseTest/providers/Microsoft.DataFactory/datafactories/MSDataFactory/datasets/OutputDataset-nqq",
+    "properties": {
+        "structure": [
+            {
+                "name": "id",
+                "type": "Int32"
+            },
+            {
+                "name": "name",
+                "type": "String"
+            }
+        ],
+        "published": false,
+        "type": "AzureSqlDWTable",
+        "linkedServiceName": "Destination-SQLDW-Test",
+        "typeProperties": {
+            "tableName": "[dbo].[test]"
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        },
+        "external": false,
+        "policy": {},
+        "id": "977a55b7-a6cd-4d46-bb25-9571e5c6167f",
+        "createTime": "2016-12-10T04:42:46.5010674Z",
+        "provisioningState": "Succeeded"
+    }
+}
